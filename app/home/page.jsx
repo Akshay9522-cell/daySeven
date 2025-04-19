@@ -4,6 +4,9 @@
 import Carousel from 'react-bootstrap/Carousel';
 import React from 'react'
 import Category from '../category';
+import '@/app/login/page.css'
+import Footer from '../footer/page';
+import Navbar from '../components/Navbar';
 
 
 
@@ -12,6 +15,7 @@ export default function page() {
        
     
     <>
+    <Navbar/>
    
     <div className='p-10'>
       
@@ -246,6 +250,201 @@ export default function page() {
         <img src="/images/banner.webp" alt="" />
     </div>
     <Category/>
+
+        <h1 className='py-4'>Send Surprise Overseas</h1>
+      <div className='flex p-6'>
+        <div>
+            <img src="/images/r1.webp" alt="" />
+        </div>
+
+        
+        <div>
+            <img src="/images/r2.webp" alt="" />
+        </div>
+      </div>
+
+
+
+      <div className='overflow-hidden '>
+        <div className='flex w-45  p-4 gap-6'>
+            
+            <img src="/images/z1.webp" alt="" />
+            <img src="/images/z2.webp" alt="" />
+            <img src="/images/z3.webp" alt="" />
+            <img src="/images/z4.webp" alt="" />
+            <img src="/images/z5.webp" alt="" />
+            <img src="/images/z6.webp" alt="" />
+            <img src="/images/z7.webp" alt="" />
+            <img src="/images/z8.webp" alt="" />
+            <img src="/images/z9.webp" alt="" />
+        </div>
+      </div>
+
+      {/* personalized and perfection */}
+
+      <div>
+        <h1>Personalized to Perfection</h1>
+        <p>uniqure Teasute that Echo Emotions</p>
+
+        <div className='flex'>
+            <div>
+            <img src="/images/p1.jpg" alt="" />
+            <p className='flex justify-center'>Hampers</p>
+            </div>
+            <div>
+            <img src="/images/p2.webp" alt="" />
+            <p className='flex justify-center'>Photo Gifts</p>
+            </div>
+            <div>
+            <img src="/images/p3.webp" alt="" />
+            <p className='flex justify-center'>Name Gifts</p>
+            </div>
+            <div>
+            <img src="/images/p4.jpg" alt="" />
+            <p className='flex justify-center'>Fashion</p>
+            </div>
+            <div>
+            <img src="/images/p5.webp" alt="" />
+            <p className='flex justify-center'>Home and Living</p>
+            </div>
+        </div>
+      </div>
+
+
+       {/* cakes and cakes */}
+
+       
+      <div className='p-6'>
+        <h1>Sweet Surprises</h1>
+        <p>Relish Scrumptious Cakes</p>
+
+        <div className='flex p-6'>
+            <div>
+            <img src="/images/ck1.webp" alt="" />
+            <p className='flex justify-center'>Hampers</p>
+            </div>
+            <div>
+            <img src="/images/ck2.webp" alt="" />
+            <p className='flex justify-center'>Photo Gifts</p>
+            </div>
+            <div>
+            <img src="/images/ck3.webp" alt="" />
+            <p className='flex justify-center'>Name Gifts</p>
+            </div>
+            <div>
+            <img src="/images/ck5.jpg" alt="" />
+            <p className='flex justify-center'>Fashion</p>
+            </div>
+            <div>
+            <img src="/images/ck4.webp" alt="" />
+            <p className='flex justify-center'>Home and Living</p>
+            </div>
+        </div>
+      </div>
+
+      {/* surprises */}
+
+      <div>
+        <h1>Surprises For Little Ones</h1>
+
+        <div className='flex gap-10 p-6'>
+            <img src="/images/s1.webp" alt="" />
+            <img src="/images/s2.webp" alt="" />
+        </div>
+      </div>
+
+
+
+      {/* celebration */}
+    <h1>Treat Yourself to  Celibration</h1>
+      <div className='flex'>
+        <div className='flex'>
+         <div>
+            <img src="/images/celi1.webp" alt="" />
+             <img src="/images/celi1b.webp" alt="" />
+         </div>
+    
+         <div>
+            <img src="/images/celi2.webp" alt="" />
+            <img src="/images/celi2.webp" alt="" />
+         </div>
+        </div>
+
+        <div>
+        <div className='flex'>
+         <div>
+            <img src="/images/celi4.jpg" alt="" />
+            <img src="/images/celi4b.webp" alt="" />
+         
+         </div>
+         <div>
+            <img src="/images/celi5.webp" alt="" />
+            <img src="/images/celi6.webp" alt="" />
+         </div>
+        </div>
+        </div>
+      </div>
+
+      <div className='news flex'>
+            
+       <div className='text-white relative p-10 ml-50'>
+        <h1>Newsletter <br /> Updates!!</h1>
+       </div>
+       <div className=' m-auto flex gap-10'>
+        <input type="email" placeholder='Enter Email ID' className='bg-white h-10 w-70'  />
+        <button className='bg-red-600 font-extrabold pl-3 p-2'>SUBMIT</button>
+       </div>
+      </div>
+
+      <div className='p-20 flex'>
+        <h1 className='sta'>Stats</h1>
+
+        <div className='flex gap-5'>
+        <span>
+            <p className='text-9xl text-gray-400'>400+</p>
+            <p className='text-red-700'>Cities having same day delivery</p>
+        </span>
+
+        <span>
+            <p className='text-9xl text-gray-400'>100+</p>
+            <p className='text-red-700'>Countries being served with happiness</p>
+        </span>
+
+        <span>
+            <p className='text-9xl text-gray-400'> 5 <span className='text-3xl absolute left-230 '>Million</span>  +</p>
+            <p className='text-red-700'>Countries being served with happiness</p>
+        </span>
+
+        </div>
+
+
+      </div>
+
+
+      
+
+
+      <div  className='bg-gray-200 flex justify-around'>
+             <div>
+               <p className='text-2xl font-bold'>Download our IGP app for a better experience !!</p>
+
+                <div className='flex p-10  gap-5'>
+                    <img src="/images/google.webp" alt="" className='w-30 h-10'  />
+                    <img src="/images/apple.webp" alt="" className='w-30 h-10' />
+                </div>
+             </div>
+
+             <div className='flex justify-center items-center gap-10 rounded'>
+                <img src="/images/fb1.jpg" alt="" className='w-20 h-20 rounded-2xl'  />
+                <img src="/images/insta.jpg" alt=""  className='w-20 h-20 rounded-2xl' />
+                <img src="/images/link.jpg" alt=""  className='w-20 h-20 rounded-2xl' />
+                <img src="/images/twitter.jpg" alt=""  className='w-20 h-20 rounded-2xl' />
+               
+             </div>
+      </div>
+     
+     <Footer/>
+      
     </>
     
   )

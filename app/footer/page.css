@@ -1,0 +1,7 @@
+.footer{
+    background: url('/images/footer5.jpg')no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

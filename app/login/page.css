@@ -6,5 +6,29 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    font-size: 30px;
     top: 20px;
+}
+
+.news{
+    background: url('https://cdn.igp.com/f_auto,q_auto/banners/Desktop_Newsletter.png');
+    height: 40vh;
+    width: 100%;
+    background-color: rgb(5, 5, 62);
+}
+.sta{
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    font-family: "PublicSans Semibold";
+    font-size: 70px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-align: center;
+    color: #dd2745;
+    border-left: 8px solid #dd2745;
+    padding-left: 16px;
+    
 }

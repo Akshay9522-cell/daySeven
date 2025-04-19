@@ -46,7 +46,16 @@ export default function Navbar() {
 
             <div className='text-2xl' ><FaHeart /></div>  
             <div className='text-2xl' ><FaOpencart /></div>
-            <div className='text-2xl'  > <Link href='login' ><FaUserCircle  onClick={logIn}/></Link></div>
+            <div className='text-2xl'  ><Link href='login'> <FaUserCircle onClick={logIn} /> </Link>
+            <select name="" id="">
+              
+               <option value=""  > User</option>
+               <option value="">Vendor</option>
+               <option value="">Admin</option>
+               <option value="">Superadmin</option>
+              
+              </select>
+              </div>
 
             </div>
 
