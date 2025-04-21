@@ -1,4 +1,5 @@
 'use client'
+import { FaBars } from "react-icons/fa";
 
 import React from 'react'
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
@@ -9,23 +10,34 @@ import { FaOpencart } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Sidebar from '@/app/components/Sidebar';
+import { useState } from 'react';
 
 
 export default function Navbar() {
-       
+
      const router=useRouter()
 
       function logIn(){
         router.push('/login')
       }
-    
+
+      const [isOpen, setIsOpen] = useState(false);
+
+      const toggleSidebar = () => {
+        setIsOpen(!isOpen);
+      };
+
   return (
-    <>
+    <> <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <div className='flex justify-evenly border border-grey bg-blue-100 '>
           <div className='flex gap-5 justify-center items-center' >
-           <div className='text-3xl' ><HiMiniBars3CenterLeft   /></div>
+           <div className='text-3xl' ><HiMiniBars3CenterLeft onClick={toggleSidebar} className="p-4 text-white fixed top-4 left-4 z-50"/>
+           {isOpen ? 'Close Menu' : <FaBars />
+           }  </div>
+          
            <div className='w-20'><img src="/images/igp.png" alt="" /></div>
-           <div className='flex gap-2.5 bg-indigo-100 text-indigo-600 p-2 border border-indig0-400 rounded-2xl'>
+           <div className='flex gap-2.5 bg-indigo-100  p-2 border border-indig0-400 rounded-2xl'>
             <img src="images/india.png" alt="" className='w-7 h-5' />
             <p>where to Deliver?</p>
            </div>
@@ -47,14 +59,7 @@ export default function Navbar() {
             <div className='text-2xl' ><FaHeart /></div>  
             <div className='text-2xl' ><FaOpencart /></div>
             <div className='text-2xl'  ><Link href='login'> <FaUserCircle onClick={logIn} /> </Link>
-            <select name="" id="">
-              
-               <option value=""  > User</option>
-               <option value="">Vendor</option>
-               <option value="">Admin</option>
-               <option value="">Superadmin</option>
-              
-              </select>
+          
               </div>
 
             </div>
