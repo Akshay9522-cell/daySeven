@@ -7,6 +7,7 @@ import { useUser  } from '@clerk/nextjs';
 import Display from '../display/page';
 import { AiFillProduct } from "react-icons/ai";
 import Product from '../product/page';
+import Register from '../register/page';
 
 
 export default function Admin() {
@@ -57,6 +58,11 @@ export default function Admin() {
   <li className="text-xl font-semibold hover:text-blue-500 transition duration-200">
     <Link href="/admin/display">Display</Link>
   </li>
+
+  <li className="text-xl font-semibold hover:text-blue-500 transition duration-200">
+    <Link href="/admin/register">registration</Link>
+  </li>
+ 
               </ul>
               
             </div>

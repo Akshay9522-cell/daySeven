@@ -10,7 +10,7 @@ import { FaOpencart } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import Sidebar from '@/app/components/Sidebar';
+import { Sidebar } from "./Sidebar";
 import { useState } from 'react';
 
 

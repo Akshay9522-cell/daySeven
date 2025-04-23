@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
-import '@/app/login/page.css'
+import '../../app/login/page.css'
 export default function page() {
 
     const[inp,setInp]=useState({})

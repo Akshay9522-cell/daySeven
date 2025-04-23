@@ -1,7 +1,7 @@
 
 'use client'
 import Link from "next/link";
-import '@/app/login/page.css';
+import '.././login/page.css';
 import { Inter, Roboto_Mono } from 'next/font/google';
 
 import {
