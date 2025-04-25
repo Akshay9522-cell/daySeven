@@ -3,15 +3,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Admin from "./componets/dash";
 
+import Headerv from "./components/Headerv";
+import Sidebar from '../vendorDashboard/components/Sidebar'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
-
-
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -26,12 +24,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
    
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <Admin/>
-        {children}
-      </body>
-    </html>
-
+    <div className="">
+    <Headerv/>
+    <div className="flex text-black">
+      <div className="  ">
+      <Sidebar/>
+      </div>
+      <div className="text-black w-full mt-20 p-2">{children}</div>
+    </div>
+  </div>
   );
 }

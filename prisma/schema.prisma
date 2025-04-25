@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "app/generated/prisma/client"
 }
 
 datasource db {
@@ -8,18 +7,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  name      String
-  age       Int
-  createdAt DateTime @default(now())
+model Admin {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String
+  password String
+  phone    String
 }
 
-model myAdmin {
-  id       String     @id @default(uuid())
+model vendor {
+  id       Int    @id @default(autoincrement())
   name     String
-  email    String  @unique
+  email    String
   password String
-  contact  Int
-  @@map("Myadmins")
+  phone    String
+}
+
+model insertproduct{
+
+      id       Int    @id @default(autoincrement())
+       category     String
+       name         String
+       description    String
+       price         String 
+       image         String
+       createdAt    DateTime @default(now())
+
 }
