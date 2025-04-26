@@ -21,6 +21,8 @@ model vendor {
   email    String
   password String
   phone    String
+  status   String @default("pending")
+  createdAt DateTime @default(now())
 }
 
 model insertproduct{

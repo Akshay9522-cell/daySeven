@@ -18,7 +18,7 @@ export default async function vendorLog(prevState,formData){
                 password
             }
         });
-        console.log(vendor)
+        console.log(email)
         if (vendor) {
             return { success: true, vendor };
          

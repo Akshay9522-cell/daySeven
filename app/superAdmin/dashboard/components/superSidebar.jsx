@@ -10,7 +10,7 @@ import { FaBars } from "react-icons/fa";
 
 
 
- export const Sidebar= ({ children }) => {
+ export  const SuperSidebar= ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -35,38 +35,27 @@ import { FaBars } from "react-icons/fa";
         <div className="flex bg-[#184572] flex-col">
           <ul className="mt-4 flex flex-col gap-5 justify-center items-center">
             <li>
-              <Link href="/admin/AdminDashboard" className="text-white hover:underline text-lg font-semibold">
+              <Link href="/superAdmin/dashboard" className="text-white hover:underline text-lg font-semibold">
                 <FaHome className="inline-block mr-2" /> Home
               </Link>
             </li>
             <li>
-              <Link href="/admin/AdminDashboard/vendors" className="text-white hover:underline text-lg font-semibold">
+              <Link href="/superAdmin/dashboard/vendors" className="text-white hover:underline text-lg font-semibold">
                 <BsDisplay className="inline-block mr-2" /> Vendor list
               </Link>
             </li>
     
-            
             <li>
-              <Link href="/admin/AdminDashboard/search" className="text-white hover:underline text-lg font-semibold">
-                <CiSearch className="inline-block mr-2" /> Vendor Search
+              <Link href="/superAdmin/dashboard/admins" className="text-white hover:underline text-lg font-semibold">
+                <BsShop className="inline-block mr-2" /> Admin list
               </Link>
             </li>
             <li>
-              <Link href="/Admin/Admindashboard/order" className="text-white hover:underline text-lg font-semibold">
-                <BsFillCartFill className="inline-block mr-2" /> Manage Order
+              <Link href="/superAdmin/dashboard/vendor" className="text-white hover:underline text-lg font-semibold">
+                <BsShop className="inline-block mr-2" /> request
               </Link>
             </li>
-            <li>
-              <Link href="/Admin/Admindashboard/newvendor" className="text-white hover:underline text-lg font-semibold">
-                <MdOutlineRequestPage className="inline-block mr-2" /> New Product Request
-              </Link>
-            </li>
-            <li>
-              <Link href="/Admin/Admindashboard/category" className="text-white hover:underline text-lg font-semibold">
-                <FaEdit className="inline-block mr-2" /> Category
-              </Link>
-            </li>
-
+           
 
           </ul>
         </div>
@@ -76,4 +65,3 @@ import { FaBars } from "react-icons/fa";
   );
 };
 
-export default Sidebar;

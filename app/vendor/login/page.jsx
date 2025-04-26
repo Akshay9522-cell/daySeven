@@ -16,10 +16,10 @@ export default function page() {
  const router=useRouter()
     useEffect(() => {
         if (state.success) {
-          console.log(state.admin);
-          localStorage.setItem("email",state.admin.email)
-          localStorage.setItem("name",state.admin.name)
-          localStorage.setItem('id',state.admin.id)
+          console.log(state.vendor);
+          localStorage.setItem("email",state.vendor.email)
+          localStorage.setItem("name",state.vendor.name)
+          localStorage.setItem('id',state.vendor.id)
           router.push("/vendor/vendorDashboard");
         }
       }, [state.success, router]);

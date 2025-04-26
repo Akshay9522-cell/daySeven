@@ -14,7 +14,7 @@ console.log(name,email,password,phone)
 
 try {
     const vendorInfo=await prisma.vendor.create({
-        data:{name,email,password,phone}
+        data:{name,email,password,phone,status: "pending",}
     })
     return { success: true };
 } catch (error) {
