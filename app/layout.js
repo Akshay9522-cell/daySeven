@@ -1,14 +1,14 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ReduxProvider from "./reduxComponent/reduxProvider";
+
 import {
   ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
+ 
 } from '@clerk/nextjs'
-import Navbar from "./components/Navbar";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -32,8 +32,10 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      
+      <ReduxProvider>
         {children}
+        </ReduxProvider>
+      
       </body>
     </html>
   </ClerkProvider>

@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from "./Sidebar";
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 
 export default function Navbar() {
@@ -27,6 +28,9 @@ export default function Navbar() {
       const toggleSidebar = () => {
         setIsOpen(!isOpen);
       };
+
+      const product = useSelector((state) => state.addtocart.cart);
+      const prolen = product.length;
 
   return (
     <> <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
@@ -57,7 +61,10 @@ export default function Navbar() {
              <div className='text-2xl'><RiMoneyRupeeCircleFill /></div>
 
             <div className='text-2xl' ><FaHeart /></div>  
-            <div className='text-2xl' ><FaOpencart /></div>
+            <div className='text-2xl' onClick={() => router.push('/addToCart')}>
+              <FaOpencart  />
+              <span className='text-sm'>{prolen}</span>
+            </div>
             <div className='text-2xl'  ><Link href='login'> <FaUserCircle onClick={logIn} /> </Link>
           
               </div>

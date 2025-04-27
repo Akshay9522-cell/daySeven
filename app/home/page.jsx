@@ -4,9 +4,10 @@
 import Carousel from 'react-bootstrap/Carousel';
 import React from 'react'
 import Category from '../category';
-import '@/app/login/page.css'
+import '../footer/page.css'
 import Footer from '../footer/page';
 import Navbar from '../components/Navbar';
+import Link from 'next/link';
 
 
 
@@ -32,7 +33,7 @@ export default function page() {
         <div className='flex'>
             <div >
             <img src="/images/h2.webp" className='w-10 m-auto' alt="" />
-            <p>Flowers</p>
+          <Link href='flower' className='text-black no-underline'> <p>Flowers</p> </Link>
             </div>
             <div>
                 <div className='min-w-1 h-20 relative top-1 left-7  bg-red-100'></div>
@@ -42,7 +43,7 @@ export default function page() {
         <div className='flex'>
             <div>
             <img src="/images/h3.webp" className='w-10' alt="" />
-            <p className='flex justify-center items-center'>Cakes</p>
+           <Link href='cake' className='text-black no-underline'> <p className='flex justify-center items-center'>Cakes</p></Link>
             </div>
             <div>
                 <div className='min-w-1 h-20 relative top-1 left-7 bg-red-100'></div>
@@ -51,7 +52,7 @@ export default function page() {
         <div className='flex'>
             <div>
             <img src="/images/h4.webp" className='w-10 m-auto' alt="" />
-            <p  className='flex justify-center items-center' >Personalized</p>
+          <Link href='personalized' className='text-black no-underline'>  <p  className='flex justify-center items-center' >Personalized</p></Link>
             </div>
             <div>
                 <div className='min-w-1 h-20 relative top-1 left-7  bg-red-100'></div>
@@ -60,7 +61,7 @@ export default function page() {
         <div className='flex'>
             <div>
             <img src="/images/h5.webp" className='w-10 m-auto' alt="" />
-            <p>Plants</p>
+         <Link href='plants'  className='text-black no-underline'><p>Plants</p></Link>
             </div>
             <div>
                 <div className='min-w-1 h-20 relative top-1 left-7  bg-red-100'></div>
