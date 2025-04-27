@@ -32,6 +32,9 @@ export default function Navbar() {
       const product = useSelector((state) => state.addtocart.cart);
       const prolen = product.length;
 
+      const product1 = useSelector((state) => state.addtofav.fav);
+      const prolen1 = product1.length;
+
   return (
     <> <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <div className='flex justify-evenly border border-grey bg-blue-100 '>
@@ -40,7 +43,7 @@ export default function Navbar() {
            {isOpen ? 'Close Menu' : <FaBars />
            }  </div>
           
-           <div className='w-20'><img src="/images/igp.png" alt="" /></div>
+           <div className='w-20'><img src="/images/lgo.png" alt="" /></div>
            <div className='flex gap-2.5 bg-indigo-100  p-2 border border-indig0-400 rounded-2xl'>
             <img src="images/india.png" alt="" className='w-7 h-5' />
             <p>where to Deliver?</p>
@@ -60,11 +63,14 @@ export default function Navbar() {
          
              <div className='text-2xl'><RiMoneyRupeeCircleFill /></div>
 
-            <div className='text-2xl' ><FaHeart /></div>  
-            <div className='text-2xl' onClick={() => router.push('/addToCart')}>
-              <FaOpencart  />
-              <span className='text-sm'>{prolen}</span>
-            </div>
+            <div className='text-2xl cursor-pointer' onClick={() => router.push('/wishlist')}  >
+              <FaHeart className="relative top-4 text-red-600" />  <span className='text-xl text-orange-500 relative left-7 bottom-6'>{prolen1}</span>
+              </div>  
+            <div className='text-2xl cursor-pointer ' onClick={() => router.push('/addToCart')}>
+           <FaOpencart className="relative top-4"  />  <span className='text-xl text-orange-500 relative left-7 bottom-6'>{prolen}</span>  
+         
+              
+            </div >
             <div className='text-2xl'  ><Link href='login'> <FaUserCircle onClick={logIn} /> </Link>
           
               </div>

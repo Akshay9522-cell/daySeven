@@ -16,15 +16,17 @@ export default function page() {
        
     
     <>
-    <Navbar/>
+   <div  className='fixed top-0  w-full bg-white shadow z-10 '  >
+        <Navbar />
+        </div>
    
     <div className='p-10'>
       
-      <div className=' h-25 flex gap-15 justify-center items-center border border-red-600 rounded-2xl '>
+      <div className=' h-25 flex gap-15 relative top-10 justify-center items-center border border-red-600 rounded-2xl '>
         <div className='flex' >
             <div >
             <img src="/images/h1.webp" className='w-10 flex justify-center items-center' alt="" />
-            <p>Same Day Delivery</p>
+          <Link href='sameday'  className='text-black no-underline' ><p>Same Day Delivery</p></Link>
             </div>
             <div>
                 <div className='min-w-1 h-20 relative top-1 left-2  bg-red-100'></div>

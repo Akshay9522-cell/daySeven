@@ -31,7 +31,8 @@ const CartPage = () => {
             <th className="px-6 py-3 text-left">Product</th>
             <th className="px-6 py-3 text-center">Quantity</th>
             <th className="px-6 py-3 text-right">Price</th>
-            <th className="px-6 py-3 text-right">Amount</th>
+            <th className="px-6 py-3 text-right relative left-35 ">Amount</th>
+            <th className="px-6 py-3 text-right relative left-14 text-red-500 ">Remove</th>
             <th></th>
           </tr>
         </thead>
@@ -61,11 +62,13 @@ const CartPage = () => {
               <td className="px-6 py-4 text-right">{product.quantity * product.proPrice}</td>
               <td className="px-6 py-4 text-right">
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
+                  className=" hover:bg-amber-900 text-white font-bold py-1 px-1 rounded"
                   onClick={()=>dispatch(remove(product))}
                 >
-                  Remove
+                 <img src="/images/delete.jpg" width={30} alt="" />
+                
                 </button>
+                
               </td>
             </tr>
           ))}

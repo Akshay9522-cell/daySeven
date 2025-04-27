@@ -9,6 +9,7 @@ const favSlice = createSlice({
         addfav: (state, action) => {
             const data = state.fav.filter((item) => item.id == action.payload.id)
             if (data.length > 0) {
+                
               alert("Product Already Added")
             }
             else {
