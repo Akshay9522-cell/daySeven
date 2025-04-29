@@ -25,10 +25,11 @@ export async function verifyOrder(orderId, razorpayPaymentId, razorpaySignature,
           razorpayOrderId: orderId, 
         },
         data: {
-          razorpayPaymentId: razorpayPaymentId, 
-          status: 'paid', 
-      
-        },
+          razorpayPaymentId: razorpayPaymentId,
+          razorpaySignature: razorpaySignature,
+          paymentStatus: "paid",
+        }
+        
       });
       return { isOk: true };
     } else {

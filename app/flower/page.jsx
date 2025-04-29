@@ -68,8 +68,10 @@ export default function Page() {
      <div  className='fixed top-0 w-full bg-white shadow z-10 '  >
           <Navbar />
           </div>
+          <div className='text-red-600'>
       <h1>This is a flower page</h1>
-      <div className="flex flex-wrap gap-5 ml-12">
+      </div>
+      <div className="flex flex-wrap gap-5 ml-12  relative top-10 " >
         {products.map((product) => (
           <div key={product.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
             <img className="rounded-t-lg w-full h-48 object-cover" src={product.proImage} alt={product.proName} />

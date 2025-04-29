@@ -7,7 +7,7 @@ import Script from 'next/script';
 import Navbar from '../components/Navbar';
 import { createOrder } from '../actions/CreateOrder';
 import { verifyOrder } from '../actions/VerifyOrders';
-import Razorpay from 'razorpay';
+
 
 const CheckoutPage = () => {
   const product = useSelector((state) => state.addtocart.cart);
@@ -28,8 +28,7 @@ const CheckoutPage = () => {
     let totalPrice = 0;
     product.forEach((p) => {
       totalPrice += p.quantity * p.proPrice;
-    var name=p.proName
-    console.log(name)
+  
     });
    
     setTotal(totalPrice);
@@ -46,6 +45,7 @@ const CheckoutPage = () => {
         pincode,
         phoneNumber,
       },
+    
       amount: total * 100,
       products: product.map((item) => ({
         productId: item.id,
@@ -61,11 +61,12 @@ const CheckoutPage = () => {
 
       const paymentData = {
         key: "rzp_test_fCPksDjKiWCo2X",
-        amount: total * 100,
+        amount:Math.round(total * 100),
         currency: 'INR',
         order_id: order.id,
         name: "Flowers",
-        description: product.map(p => p.productName).join(", "), 
+        description: product.map(p => `${p.proName} (x${p.quantity})`).join(", "),
+
         image:  product[0]?.image || '/images/lgo.png',
      
         handler: async (response) => {
@@ -80,8 +81,8 @@ const CheckoutPage = () => {
             razorpaySignature,
             orderData.user
           );
-          console.log(paymentData)
-          console.log(key)
+          console.log(paymentData.key)
+        
           if (verifyRes.isOk) {
             alert('✅ Payment successful');
           } else {

@@ -1,10 +1,27 @@
-import React from 'react'
+'use client'
 
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function page() {
+   
+  const router=useRouter()
+
+
+  useEffect(()=>{
+    let name=localStorage.getItem('name')
+     if(!name){
+      router.push('/admin/login')
+     } else{
+      router.push('/admin/AdminDashboard')
+     }
+  },[])
+
   return (
     <div>
     <h1>akshay dash</h1>
+
+    
     </div>
   )
 }

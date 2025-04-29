@@ -22,7 +22,7 @@ export default function page() {
     
     <>
     <div className="w-full border border-gray-500 h-13 text-center ">
-     <img src="/images/igp.png" alt="" className="w-20 absolute top-1/22 left-1/2 transform -translate-x-1/2 -translate-y-1/2"  />
+     <img src="/images/lgo.png" alt="" className="w-20 absolute top-1/22 left-1/2 transform -translate-x-1/2 -translate-y-1/2"  />
      <img src="https://cdn.igp.com/raw/upload/assets/svg-icons/rebrand-login-ill.svg" alt="" />
     </div>
 

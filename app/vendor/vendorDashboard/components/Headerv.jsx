@@ -8,7 +8,7 @@ export default function Headerv () {
   const [email, setEmail] = useState('')
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const name = typeof window !== 'undefined' ? localStorage.getItem('name') : null;
+      const name = typeof window !== 'undefined' ? localStorage.getItem('vendor') : null;
       const email = typeof window !== 'undefined' ? localStorage.getItem('email') : null;
       setName(name || '')
       setEmail(email || '')

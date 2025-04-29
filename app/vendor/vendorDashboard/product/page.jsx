@@ -34,11 +34,11 @@ export default function page() {
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="">Choose category</option>
-          <option value="cloth">Cloth</option>
-          <option value="electronics">Electronics</option>
-          <option value="kitchen">Kitchen</option>
-          <option value="kid">Kid</option>
-          <option value="education">Education</option>
+          <option value="birthday gift">Birthday gift</option>
+          <option value="aniversary gift">Aniversary gift</option>
+          <option value="wedding gift">Wedding gift</option>
+          <option value="festival gift">Festivals gift</option>
+          <option value="education gift">Educational gift</option>
         </select>
       </div>
   

@@ -2,6 +2,8 @@
 import React, { useActionState,useEffect } from 'react'
 import vendorLog from '../../actions/vendorLog';
 import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+import Navbar from '../../components/Navbar';
 
 
 const initialState = {
@@ -18,13 +20,15 @@ export default function page() {
         if (state.success) {
           console.log(state.vendor);
           localStorage.setItem("email",state.vendor.email)
-          localStorage.setItem("name",state.vendor.name)
+          localStorage.setItem("vendor",state.vendor.name)
           localStorage.setItem('id',state.vendor.id)
           router.push("/vendor/vendorDashboard");
         }
       }, [state.success, router]);
   return (
-    <div className='m-auto w-50' >
+    <>
+    <Navbar/>
+    <div className='m-auto relative top-20 w-50' >
       <form action={formAction} className="m-auto">
 
       <div className="flex flex-col mb-3">
@@ -52,12 +56,18 @@ export default function page() {
               className="shadow-lg p-3 border border-gray-300 w-full"
             />
           </div>
-
+          <div className="text-sm text-gray-600 mt-4">
+      <span>Don't have registration? </span>
+      <Link href="/vendor/signup" className="text-blue-600 hover:underline font-medium">
+        Click here
+      </Link>
+    </div>
           <button type='submit'  className="btn" style={{ backgroundColor: "#DD2745", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", top: "20px" }}>Login</button>
         
       </form>
 
       
     </div>
+    </>
   )
 }

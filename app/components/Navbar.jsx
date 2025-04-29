@@ -1,7 +1,6 @@
-'use client'
+'use client';
 import { FaBars } from "react-icons/fa";
-
-import React from 'react'
+import React, { useState } from 'react';
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
@@ -11,76 +10,83 @@ import { FaUserCircle } from "react-icons/fa";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from "./Sidebar";
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-
 export default function Navbar() {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
-     const router=useRouter()
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
-      function logIn(){
-        router.push('/login')
-      }
-
-      const [isOpen, setIsOpen] = useState(false);
-
-      const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-      };
-
-      const product = useSelector((state) => state.addtocart.cart);
-      const prolen = product.length;
-
-      const product1 = useSelector((state) => state.addtofav.fav);
-      const prolen1 = product1.length;
+  const product = useSelector((state) => state.addtocart.cart);
+  const favs = useSelector((state) => state.addtofav.fav);
 
   return (
-    <> <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div className='flex justify-evenly border border-grey bg-blue-100 '>
-          <div className='flex gap-5 justify-center items-center' >
-           <div className='text-3xl' ><HiMiniBars3CenterLeft onClick={toggleSidebar} className="p-4 text-white fixed top-4 left-4 z-50"/>
-           {isOpen ? 'Close Menu' : <FaBars />
-           }  </div>
-          
-           <div className='w-20'><img src="/images/lgo.png" alt="" /></div>
-           <div className='flex gap-2.5 bg-indigo-100  p-2 border border-indig0-400 rounded-2xl'>
-            <img src="images/india.png" alt="" className='w-7 h-5' />
-            <p>where to Deliver?</p>
-           </div>
-           </div>
+    <>
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-blue-100 border border-grey">
 
-           <div className='flex justify-center items-center '>
-            <input type="search" placeholder='Search for gifts....' className='font-extrabold border border-grey-500 pr-50 rounded-2xl p-2' />
-            <IoSearchOutline  className='text-3xl relative right-9'/>
-            </div>
+        <div className="flex items-center gap-4">
+         
+          <button className="text-3xl md:hidden" onClick={toggleSidebar}>
+            <HiMiniBars3CenterLeft className="text-white" />
+          </button>
+
         
-        <div className='flex gap-5 justify-center items-center'>
-             <div><img src="https://cdn.igp.com/raw/upload/assets/svg-icons/getSelect_redirect.svg" alt="" /></div>
+          <div className="w-16">
+            <img src="/images/lgo.png" alt="logo" className="w-full" />
+          </div>
 
-         
-             <div><img src="https://cdn.igp.com/raw/upload/assets/svg-icons/reminder-icon.svg" alt="" /> </div>
-         
-             <div className='text-2xl'><RiMoneyRupeeCircleFill /></div>
+      
+          <div className="hidden lg:flex items-center gap-2 bg-indigo-100 p-2 border border-indigo-400 rounded-2xl">
+            <img src="/images/india.png" alt="India" className="w-7 h-5" />
+            <p className="text-sm">Where to Deliver?</p>
+          </div>
+        </div>
 
-            <div className='text-2xl cursor-pointer' onClick={() => router.push('/wishlist')}  >
-              <FaHeart className="relative top-4 text-red-600" />  <span className='text-xl text-orange-500 relative left-7 bottom-6'>{prolen1}</span>
-              </div>  
-            <div className='text-2xl cursor-pointer ' onClick={() => router.push('/addToCart')}>
-           <FaOpencart className="relative top-4"  />  <span className='text-xl text-orange-500 relative left-7 bottom-6'>{prolen}</span>  
-         
-              
-            </div >
-            <div className='text-2xl'  ><Link href='login'> <FaUserCircle onClick={logIn} /> </Link>
-          
-              </div>
+     
+        <div className="flex items-center mt-3 md:mt-0 w-full md:w-auto md:flex-1 md:mx-6  hidden">
+          <div className="relative w-full">
+            <input
+              type="search"
+              placeholder="Search for gifts..."
+              className="w-full md:w-96 border border-gray-500 rounded-2xl p-2 pl-4 pr-10 font-medium text-sm"
+            />
+            <IoSearchOutline className="absolute right-3 top-2.5 text-xl text-gray-700" />
+          </div>
+        </div>
 
-            </div>
+        <div className="flex items-center gap-4 mt-3 md:mt-0">
+          <img
+            src="https://cdn.igp.com/raw/upload/assets/svg-icons/getSelect_redirect.svg"
+            alt="Redirect"
+            className="w-5 h-5 hidden sm:block"
+          />
+          <img
+            src="https://cdn.igp.com/raw/upload/assets/svg-icons/reminder-icon.svg"
+            alt="Reminder"
+            className="w-5 h-5 hidden sm:block"
+          />
+          <RiMoneyRupeeCircleFill className="text-2xl hidden sm:block" />
 
-            
+          {/* Wishlist */}
+          <div onClick={() => router.push('/wishlist')} className="relative cursor-pointer text-red-600">
+            <FaHeart className="text-2xl" />
+            <span className="absolute text-xs text-orange-500 -top-2 -right-3">{favs.length}</span>
+          </div>
 
-    
+          {/* Cart */}
+          <div onClick={() => router.push('/addToCart')} className="relative cursor-pointer">
+            <FaOpencart className="text-2xl" />
+            <span className="absolute text-xs text-orange-500 -top-2 -right-3">{product.length}</span>
+          </div>
+
+          {/* User Login */}
+          <Link href="/login">
+            <FaUserCircle className="text-2xl cursor-pointer" />
+          </Link>
+        </div>
       </div>
     </>
-  )
+  );
 }

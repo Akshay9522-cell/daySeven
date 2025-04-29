@@ -3,12 +3,17 @@
 import React, { useActionState } from 'react'
 
 import  vendoeReg from '../../actions/vendoeReg'
+import Link from 'next/link'
+import Navbar from '../../components/Navbar'
 
 export default function Sign() {
 
     const[state,formAction]=useActionState(vendoeReg)
   return (
-    <div className='m-auto w-50'>
+
+    <>
+    <Navbar/>
+    <div className='m-auto relative top-15 w-50'>
             <form className="m-auto" action={formAction}>
             <div className="flex flex-col mb-3">
               <label htmlFor="name" className="text-gray-600">
@@ -58,12 +63,18 @@ export default function Sign() {
               className="shadow-lg p-3 border border-gray-300 w-full"
             />
           </div>
-
+          <div className="text-sm text-gray-600 mt-4 text-center">
+      <span>Already have an account? </span>
+      <Link href="/vendor/login" className="text-blue-600 hover:underline font-medium">
+        Click here
+      </Link>
+    </div>
           <div className="btn" style={{ backgroundColor: "#DD2745", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", top: "20px" }}>
            <button type='submit'>save</button>
           </div>
         </form>
 
     </div>
+    </>
   )
 }

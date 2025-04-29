@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import { useDispatch } from 'react-redux';
 import { add } from '../redux/cartSlice';
+import { addfav } from '../redux/favSlice';
 
 export default function Page() {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <h1>This is a cake page</h1>
+      <h1 className='flex justify-center items-center p-6 shadow-lg text-red-500'  >Cake's </h1>
       <div className="flex flex-wrap gap-5 ml-12">
         {products.map((product) => (
           <div key={product.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
@@ -74,12 +75,21 @@ export default function Page() {
             <div className="p-5">
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 mb-2">{product.proName}</h5>
               <p className="text-gray-600 text-sm"></p>
-              <button
-                onClick={() => handleAddToCart(product)} // Dispatch action with the product data
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:ring-4 focus:ring-blue-300"
-              >
-                Add to Cart
-              </button>
+               <div className='flex gap-3'>
+                            <button
+                              onClick={() => handleAddToCart(product)} // Dispatch action with the product data
+                              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:ring-4 focus:ring-blue-300"
+                            >
+                              Add to Cart
+                            </button>
+              
+                            <button
+                            onClick={() => dispatch(addfav(product))} // Dispatch action with the product data
+                              className= " p-6 bg-red-700 text-white py-2 px-4 rounded hover:bg-red-600 focus:ring-4 focus:ring-blue-300"
+                            >
+                              Add to Wishlist
+                            </button>
+                            </div>
             </div>
           </div>
         ))}

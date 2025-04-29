@@ -3,11 +3,15 @@
 import React, { useActionState } from 'react'
 import { useFormState } from 'react-dom'
 import adminReg from '../../actions/adminReg'
+import Navbar from '../../components/Navbar'
+import Link from 'next/link'
 
 export default function Sign() {
 
     const[state,formAction]=useActionState(adminReg )
   return (
+    <>
+    <Navbar/>
     <div className='m-auto w-50'>
             <form className="m-auto" action={formAction}>
             <div className="flex flex-col mb-3">
@@ -58,6 +62,7 @@ export default function Sign() {
               className="shadow-lg p-3 border border-gray-300 w-full"
             />
           </div>
+          <span>Already have an account</span><Link href='/admin/login'>Login Here</Link>
 
           <div className="btn" style={{ backgroundColor: "#DD2745", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", top: "20px" }}>
            <button type='submit'>save</button>
@@ -65,5 +70,6 @@ export default function Sign() {
         </form>
 
     </div>
+    </>
   )
 }

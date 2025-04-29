@@ -2,7 +2,8 @@
 import React, { useActionState,useEffect } from 'react'
 import adminLog from '../../actions/adminLog'
 import { useRouter } from 'next/navigation'
-
+import Link from 'next/link'
+import Navbar from '../../components/Navbar'
 
 const initialState = {
     success: false,
@@ -17,14 +18,21 @@ export default function page() {
     useEffect(() => {
         if (state.success) {
           console.log(state.admin);
-          localStorage.setItem("email",state.admin.email)
+          localStorage.setItem("adminemail",state.admin.email)
           localStorage.setItem("name",state.admin.name)
           localStorage.setItem('id',state.admin.id)
           router.push("/admin/AdminDashboard");
         }
       }, [state.success, router]);
+     
+
+   
+
   return (
-    <div className='m-auto w-50' >
+    <>
+    <Navbar/>
+    <div className='m-auto relative top-30 w-50' >
+     
       <form action={formAction} className="m-auto">
 
       <div className="flex flex-col mb-3">
@@ -53,11 +61,14 @@ export default function page() {
             />
           </div>
 
+          <span>don't have an Account</span><Link href='/admin/Sign'> Register Here</Link>
+
           <button type='submit'  className="btn" style={{ backgroundColor: "#DD2745", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative", top: "20px" }}>Login</button>
         
       </form>
 
       
     </div>
+    </>
   )
 }
