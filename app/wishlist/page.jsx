@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { addfav, removefav } from '../redux/favSlice';
 import { add } from '../redux/cartSlice';
+import Navbar from '../components/Navbar';
 
 const FavouritePage = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,8 @@ const FavouritePage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-indigo-500 mt-5 mb-4 text-center">Favourite</h1>
+        <Navbar/>
+      <h1 className="text-3xl font-bold text-indigo-500 mt-5 mb-4 text-center"></h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {favouriteProducts?.length > 0 ? (
           favouriteProducts.map((item, index) => (
