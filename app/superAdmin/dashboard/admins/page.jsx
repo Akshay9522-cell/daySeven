@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {adminList} from '../../../actions/adminList'
-
+import { approveAdmin } from '../../../actions/approveAdmin'
 import { deleteAdmin } from '../../../actions/deleteAdmin'
 
 export default function page() {
@@ -31,6 +31,23 @@ export default function page() {
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error: {error.message}</p>;
 
+     
+       const handleApprove=async(id)=>{
+           
+        try {
+          await approveAdmin(id)
+
+          setShow(prev=>
+            prev.map((e)=>{
+              e.id===id ?{...e,status:'approved'}:e
+            })
+          )
+        } catch (error) {
+          console.log("error")
+        }
+      }
+   
+
   return (
     <div>
         <Link href='admins'></Link>
@@ -43,7 +60,7 @@ export default function page() {
           <th className="border border-gray-300 px-4 py-2 text-left">Name</th>
           <th className="border border-gray-300 px-4 py-2 text-left">Email</th>
           <th className="border border-gray-300 px-4 py-2 text-left">Phone</th>
-          <th className="border border-gray-300 px-4 py-2 text-left">Delete</th>
+          <th className="border border-gray-300 px-4 py-2 text-left">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -54,11 +71,25 @@ export default function page() {
             <td className="border border-gray-300 px-4 py-2">{e.email}</td>
             <td className="border border-gray-300 px-4 py-2">{e.phone}</td>
             <td className="border border-gray-300 px-4 py-2">
+            {e.status !== 'approved' ? (
+            <>
+            <button
+            onClick={() => handleApprove(e.id)}
+            className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded mr-2">
+           Accept</button>
+      <button onClick={() => deleteAdmin(e.id)}
+        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">
+        Reject
+      </button>
+    </>
+  ) : (
+    <div className="flex items-center gap-2">
+      <span className="h-3 w-3 rounded-full bg-green-500 inline-block"></span>
+      <span className="text-green-700 font-semibold">Active</span>
+    </div>
+  )}
+</td>
 
-            <button  onClick={()=>deleteAdmin(e.id)}  className="flex items-center justify-center w-10 h-10 bg-red-500 hover:bg-red-600 rounded-full transition duration-200">
-    <img src="/images/delete.jpg" className="w-6 h-6" alt="Delete" />
-</button>
-            </td>
           </tr>
         ))}
       </tbody>

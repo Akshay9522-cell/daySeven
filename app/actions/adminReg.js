@@ -15,6 +15,7 @@ try {
     const adminInf=await prisma.admin.create({
         data:{name,email,password,phone}
     })
+    
     return { success: true };
 } catch (error) {
     console.error('Error creating product:', error);

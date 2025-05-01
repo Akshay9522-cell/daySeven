@@ -36,6 +36,7 @@ export default async function insertProduct(prevState,formData){
           return { success: false, error: 'Image upload failed' };
         }
         const priceInt=parseInt(price)
+        
         const product= await prisma.insertproduct.create({
             data:{
                 category,

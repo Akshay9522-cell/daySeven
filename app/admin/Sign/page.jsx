@@ -1,18 +1,20 @@
 'use client'
 
 import React, { useActionState } from 'react'
-import { useFormState } from 'react-dom'
+
 import adminReg from '../../actions/adminReg'
 import Navbar from '../../components/Navbar'
 import Link from 'next/link'
+import Footer from '../../footer/page'
 
 export default function Sign() {
 
     const[state,formAction]=useActionState(adminReg )
   return (
-    <>
+    < >
     <Navbar/>
-    <div className='m-auto w-50'>
+    <div className='footer'>
+    <div className='m-auto w-50  '>
             <form className="m-auto" action={formAction}>
             <div className="flex flex-col mb-3">
               <label htmlFor="name" className="text-gray-600">
@@ -69,7 +71,9 @@ export default function Sign() {
           </div>
         </form>
 
+    </div> <br />
     </div>
+    
     </>
   )
 }

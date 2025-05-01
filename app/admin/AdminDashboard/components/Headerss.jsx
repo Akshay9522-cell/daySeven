@@ -8,7 +8,7 @@ export default function Headerss () {
   const [email, setEmail] = useState('')
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const name = typeof window !== 'undefined' ? localStorage.getItem('name') : null;
+      const name = typeof window !== 'undefined' ? localStorage.getItem('adminname') : null;
       const email = typeof window !== 'undefined' ? localStorage.getItem('adminemail') : null;
       setName(name || '')
       setEmail(email || '')

@@ -41,7 +41,7 @@ export default function VendorRequests() {
                   onClick={() => handleDecision(v.id, 'accepted')}
                   className="bg-green-500 text-white px-3 py-1 rounded mr-2"
                 >
-                  Accept
+                  Approved
                 </button>
                 <button
                   onClick={() => handleDecision(v.id, 'rejected')}

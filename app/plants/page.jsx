@@ -70,7 +70,7 @@ export default function Page() {
       <Navbar />
       </div>
       <h1>This is a plant page</h1>
-      <div className="flex flex-wrap gap-5 ml-12  relative top-5 ">
+      <div className="flex flex-wrap gap-5 m-auto ml-12 ">
         {products.map((product) => (
           <div key={product.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
             <img className="rounded-t-lg w-full h-48 object-cover" src={product.proImage} alt={product.proName} />

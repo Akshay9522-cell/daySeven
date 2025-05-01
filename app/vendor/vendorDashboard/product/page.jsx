@@ -22,84 +22,104 @@ export default function page() {
 
     </Link>
   
-    <form  action={formAction} className="space-y-4">
-      <div>
-        <label htmlFor="category" className="block text-sm font-medium text-gray-700">
-          Category
-        </label>
-        <select
-          name="category"
-          id="category"
-        
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        >
-          <option value="">Choose category</option>
-          <option value="birthday gift">Birthday gift</option>
-          <option value="aniversary gift">Aniversary gift</option>
-          <option value="wedding gift">Wedding gift</option>
-          <option value="festival gift">Festivals gift</option>
-          <option value="education gift">Educational gift</option>
-        </select>
-      </div>
-  
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-          Product Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name='name'
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2"
-          placeholder="Enter product name"
-        />
-      </div>
-  
-      <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-          Description
-        </label>
-        <input
-          type="text"
-          id="description"
-          name='description'
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2"
-          placeholder="Enter product description"
-        />
-      </div>
-  
-      <div>
-        <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-          Price
-        </label>
-        <input
-          type="number"
-          id="price"
-          name='price'
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2"
-          placeholder="Enter product price"
-        />
-      </div>
-  
-      <div>
-        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-          Image
-        </label>
-        <input
-          type="file"
-          id="image"
-          name='image'
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
-  
-      <button
-        type="submit"
-        className="w-full bg-blue-500 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition duration-200"
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
+  <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Add New Product</h2>
+
+  <form action={formAction} className="space-y-5">
+    {/* Category */}
+    <div>
+      <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+        Category <span className="text-red-500">*</span>
+      </label>
+      <select
+        name="category"
+        id="category"
+        required
+        className="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
       >
-        Submit
-      </button>
-    </form>
+        <option value="">Choose category</option>
+        <option value="birthday gift">Birthday Gift</option>
+        <option value="aniversary gift">Anniversary Gift</option>
+        <option value="wedding gift">Wedding Gift</option>
+        <option value="festival gift">Festival Gift</option>
+        <option value="education gift">Educational Gift</option>
+      </select>
+    </div>
+
+    {/* Product Name */}
+    <div>
+      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+        Product Name <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Enter product name"
+        className="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      />
+    </div>
+
+    {/* Description */}
+    <div>
+      <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+        Description <span className="text-red-500">*</span>
+      </label>
+      <textarea
+        id="description"
+        name="description"
+        required
+        rows="3"
+        placeholder="Enter product description"
+        className="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 resize-none"
+      />
+    </div>
+
+    {/* Price */}
+    <div>
+      <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-1">
+        Price (₹) <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        required
+        placeholder="Enter product price"
+        className="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      />
+    </div>
+
+    {/* Image Upload */}
+    <div>
+      <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">
+        Upload Image <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        required
+        accept="image/*"
+        className="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4
+          file:rounded-md file:border-0
+          file:text-sm file:font-semibold
+          file:bg-blue-50 file:text-blue-700
+          hover:file:bg-blue-100"
+      />
+    </div>
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition-colors"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
 
     {state?.success && (
         <p className="mt-4 text-center text-green-600">

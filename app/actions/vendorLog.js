@@ -14,18 +14,27 @@ export default async function vendorLog(prevState,formData){
     try {
         const vendor = await prisma.vendor.findFirst({
             where: {
-                email,
-                password
+                email
             }
         });
         console.log(email)
-        if (vendor) {
-            return { success: true, vendor };
+
+         if(!vendor){
+            return{success:false,error:'user not found'}
+         }
+
+         if(vendor.password!=password){
+            return{success:false,error:"password is invalid"}
+         }
+
+         if(vendor.status!=='accepted'){
+            return{success:false,error:"invalid"}
+         }
+
+      
+         return { success: true, vendor };
          
-        } else {
-            return { error: 'Invalid email or password' };
-        }
-    
+      
     } catch (error) {
         console.error('Error logging in:', error);
         return { error: 'Failed to log in' };

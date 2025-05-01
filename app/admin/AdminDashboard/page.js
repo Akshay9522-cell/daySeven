@@ -19,7 +19,7 @@ export default function page() {
 
   return (
     <div>
-    <h1>akshay dash</h1>
+      <img src="https://cdn.igp.com/raw/upload/assets/svg-icons/rebrand-login-ill.svg" alt="" />
 
     
     </div>

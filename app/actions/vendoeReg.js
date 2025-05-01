@@ -16,7 +16,7 @@ try {
     const vendorInfo=await prisma.vendor.create({
         data:{name,email,password,phone,status: "pending",}
     })
-    return { success: true };
+    return { success: true,vendorInfo };
 } catch (error) {
     console.error('Error creating product:', error);
         return { error: 'Failed to create product' };

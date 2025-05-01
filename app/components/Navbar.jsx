@@ -23,8 +23,9 @@ export default function Navbar() {
 
   return (
     <>
+    <div >
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-blue-100 border border-grey">
+      <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-red-200 border border-grey">
 
         <div className="flex items-center gap-4">
          
@@ -69,23 +70,24 @@ export default function Navbar() {
           />
           <RiMoneyRupeeCircleFill className="text-2xl hidden sm:block" />
 
-          {/* Wishlist */}
+        
           <div onClick={() => router.push('/wishlist')} className="relative cursor-pointer text-red-600">
             <FaHeart className="text-2xl" />
-            <span className="absolute text-xs text-orange-500 -top-2 -right-3">{favs.length}</span>
+            <span className="absolute text-xs text-black-500 -top-2 -right-3">{favs.length}</span>
           </div>
 
-          {/* Cart */}
+          
           <div onClick={() => router.push('/addToCart')} className="relative cursor-pointer">
             <FaOpencart className="text-2xl" />
-            <span className="absolute text-xs text-orange-500 -top-2 -right-3">{product.length}</span>
+            <span className="absolute text-xs text-black-500 -top-2 -right-3">{product.length}</span>
           </div>
 
-          {/* User Login */}
+          
           <Link href="/login">
             <FaUserCircle className="text-2xl cursor-pointer" />
           </Link>
         </div>
+      </div>
       </div>
     </>
   );

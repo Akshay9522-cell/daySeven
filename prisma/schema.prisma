@@ -13,6 +13,7 @@ model Admin {
   email    String
   password String
   phone    String
+  status  String @default("pending")
 }
 
 model vendor {
@@ -23,6 +24,7 @@ model vendor {
   phone    String
   status   String @default("pending")
   createdAt DateTime @default(now())
+  products  insertproduct[]
 }
 
 model insertproduct{
@@ -34,6 +36,8 @@ model insertproduct{
        price         String 
        image         String
        createdAt    DateTime @default(now())
+       vendorId     Int
+       vendor        vendor    @relation(fields: [vendorId], references: [id])
 
 }
   
