@@ -4,6 +4,7 @@ import adminLog from '../../actions/adminLog'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
+import { Toaster,toast } from 'react-hot-toast'
 
 const initialState = {
     success: false,
@@ -27,6 +28,7 @@ export default function page() {
           localStorage.setItem("adminname",state.admin.name)
           localStorage.setItem('id',state.admin.id)
           router.push("/admin/AdminDashboard");
+          toast.success('Login Successfully')
         }
       }, [state.success, router]);
      
@@ -90,6 +92,8 @@ export default function page() {
 </div>
 
     </div>
+
+    <Toaster/>
 
     </>
   )

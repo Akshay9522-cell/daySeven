@@ -11,6 +11,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Sidebar } from "./Sidebar";
 import { useSelector } from 'react-redux';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser
+} from '@clerk/nextjs'
 
 export default function Navbar() {
   const router = useRouter();
@@ -23,6 +32,7 @@ export default function Navbar() {
 
   return (
     <>
+    
     <div >
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-red-200 border border-grey">
@@ -83,9 +93,12 @@ export default function Navbar() {
           </div>
 
           
-          <Link href="/login">
-            <FaUserCircle className="text-2xl cursor-pointer" />
-          </Link>
+      
+          <SignInButton />
+          <SignedIn>
+              <UserButton />
+            </SignedIn>
+       
         </div>
       </div>
       </div>

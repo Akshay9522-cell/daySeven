@@ -4,6 +4,7 @@ import vendorLog from '../../actions/vendorLog';
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
+import { Toaster,toast } from 'react-hot-toast';
 
 
 const initialState = {
@@ -23,6 +24,7 @@ export default function page() {
           localStorage.setItem("vendor",state.vendor.name)
           localStorage.setItem('id',state.vendor.id)
           router.push("/vendor/vendorDashboard");
+          toast.success('logged in Successfully')
         }
       }, [state.success, router]);
   return (
@@ -87,6 +89,7 @@ export default function page() {
 </div>
 
     </div>
+    <Toaster/>
     </>
   )
 }

@@ -5,6 +5,7 @@ import React, { useActionState } from 'react'
 import  vendoeReg from '../../actions/vendoeReg'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
+import { Toaster,toast } from 'react-hot-toast'
 
 export default function Sign() {
 
@@ -94,6 +95,7 @@ export default function Sign() {
 </div>
 
     </div>
+    <Toaster/>
     </>
   )
 }

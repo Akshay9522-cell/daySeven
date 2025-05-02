@@ -43,6 +43,7 @@ export default function page() {
         <option value="wedding gift">Wedding Gift</option>
         <option value="festival gift">Festival Gift</option>
         <option value="education gift">Educational Gift</option>
+        <option value="education gift">New Arrival</option>
       </select>
     </div>
 

@@ -9,7 +9,7 @@ export default function page() {
 
 
   useEffect(()=>{
-    let name=localStorage.getItem('name')
+    let name=localStorage.getItem('adminname')
      if(!name){
       router.push('/admin/login')
      } else{

@@ -70,7 +70,7 @@ export default function Page() {
       <Navbar />
       </div>
       <h1>This is a plant page</h1>
-      <div className="flex flex-wrap gap-5 m-auto ml-12 ">
+      <div className="flex flex-wrap gap-25 m-auto  ">
         {products.map((product) => (
           <div key={product.id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
             <img className="rounded-t-lg w-full h-48 object-cover" src={product.proImage} alt={product.proName} />
@@ -80,14 +80,14 @@ export default function Page() {
                <div className='flex gap-3'>
                             <button
                               onClick={() => handleAddToCart(product)} // Dispatch action with the product data
-                              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:ring-4 focus:ring-blue-300"
+                              className="bg-blue-500 text-white py-2 px-2 rounded hover:bg-blue-600 focus:ring-4 focus:ring-blue-300"
                             >
                               Add to Cart
                             </button>
               
                             <button
                             onClick={() => dispatch(addfav(product))} // Dispatch action with the product data
-                              className= " p-6 bg-red-700 text-white py-2 px-4 rounded hover:bg-red-600 focus:ring-4 focus:ring-blue-300"
+                              className= " p-6 bg-red-700 text-white py-2 px-2 rounded hover:bg-red-600 focus:ring-4 focus:ring-blue-300"
                             >
                               Add to Wishlist
                             </button>

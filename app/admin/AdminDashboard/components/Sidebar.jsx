@@ -6,6 +6,7 @@ import { BsDisplay, BsShop, BsFillCartFill } from 'react-icons/bs';
 import { MdOutlineRequestPage } from 'react-icons/md';
 import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa";
+import {Toaster,toast} from 'react-hot-toast';
 
 
 
@@ -40,7 +41,7 @@ import { FaBars } from "react-icons/fa";
       
             <li>
               <Link
-                href="/admin/AdminDashboard"
+                href="/admin/AdminDashboard/home"
                 className="text-white hover:underline text-lg font-semibold"
               >
                 <FaHome className="inline-block mr-2" /> Home
@@ -67,10 +68,10 @@ import { FaBars } from "react-icons/fa";
      
             <li>
               <Link
-                href="/Admin/Admindashboard/order"
+                href="/admin/AdminDashboard/cat"
                 className="text-white hover:underline text-lg font-semibold"
               >
-                <BsFillCartFill className="inline-block mr-2" /> Manage Order
+                <BsFillCartFill className="inline-block mr-2" /> Category
               </Link>
             </li>
           
@@ -101,6 +102,7 @@ import { FaBars } from "react-icons/fa";
           {children}
         </div>
       )}
+      <Toaster/>
     </>
   );
 };

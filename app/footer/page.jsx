@@ -35,14 +35,7 @@ export default function Footer() {
             </ul>
          </div>
 
-         <div>
-            <h5>NEWSLETTER</h5>
-            <p>Subscribe to get notified about product <br /> launches special offers and company news</p>
-
-            <input type="email" placeholder='Enter your email address' id="" className='shadow-lg p-2' />
-
-            <button className='rounded bg-pink-400 p-2'>SUBSCRIBE</button>
-         </div>
+        
       </div>
       
     </>
