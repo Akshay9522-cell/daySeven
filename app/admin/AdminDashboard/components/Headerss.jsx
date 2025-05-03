@@ -15,6 +15,19 @@ export default function Headerss () {
       setEmail(email || '')
     }
   }, [])
+  function logout() {
+    const verifiedEmails = localStorage.getItem('verified_emails'); // notice plural (array)
+  
+    localStorage.clear();
+  
+    if (verifiedEmails) {
+      localStorage.setItem('verified_emails', verifiedEmails);
+    }
+  
+    router.push('/');
+    toast.success('Logged out successfully!');
+  }
+  
   return (
     <div className="bg-gray-700 ">
       <div className="flex justify-between">
@@ -22,7 +35,7 @@ export default function Headerss () {
         {/* <p className="text-white ">User : {name}  </p>
         <p className="text-white ">Email: {email}    </p> */}
         <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded"
-          onClick={() => { localStorage.clear(), router.push('/'),toast.success('logout successfully') }  }>
+          onClick={logout }>
           Logout
         </button>
       </div>
