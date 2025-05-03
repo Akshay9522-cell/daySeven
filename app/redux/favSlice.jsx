@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Toaster,toast } from "react-hot-toast";
 
 const favSlice = createSlice({
     name: "addtofav",
@@ -10,7 +11,7 @@ const favSlice = createSlice({
             const data = state.fav.filter((item) => item.id == action.payload.id)
             if (data.length > 0) {
                 
-              alert("Product Already Added")
+              toast.success("Product Already Added")
             }
             else {
                 state.fav.push(action.payload);
@@ -22,8 +23,10 @@ const favSlice = createSlice({
         },
        
     }
+  
 
 })
+
 
 export const { addfav, removefav} = favSlice.actions;
 export default favSlice.reducer

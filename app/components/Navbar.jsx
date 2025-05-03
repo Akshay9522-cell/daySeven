@@ -54,7 +54,8 @@ export default function Navbar() {
             <p className="text-sm">Where to Deliver?</p>
           </div>
         </div>
-
+          
+            
      
         <div className="flex items-center mt-3 md:mt-0 w-full md:w-auto md:flex-1 md:mx-6  hidden">
           <div className="relative w-full">

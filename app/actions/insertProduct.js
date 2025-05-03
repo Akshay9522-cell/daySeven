@@ -28,7 +28,7 @@ export default async function insertProduct(prevState,formData){
           method: "POST",
           body: newformData
         });
-         console.log("cloudinaryResponse :- ", cloudinaryResponse);
+        //  console.log("cloudinaryResponse :- ", cloudinaryResponse);
          
         const cloudinaryData = await cloudinaryResponse.json();
     

@@ -24,7 +24,7 @@ model vendor {
   phone    String
   status   String @default("pending")
   createdAt DateTime @default(now())
-  products  insertproduct[]
+  // products  insertproduct[]
 }
 
 model insertproduct{
@@ -36,8 +36,8 @@ model insertproduct{
        price         String 
        image         String
        createdAt    DateTime @default(now())
-       vendorId     Int
-       vendor        vendor    @relation(fields: [vendorId], references: [id])
+      //  vendorId     Int
+      //  vendor        vendor    @relation(fields: [vendorId], references: [id])
 
 }
   

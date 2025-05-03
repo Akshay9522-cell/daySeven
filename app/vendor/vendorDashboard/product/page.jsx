@@ -38,12 +38,12 @@ export default function page() {
         className="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
       >
         <option value="">Choose category</option>
-        <option value="birthday gift">Birthday Gift</option>
-        <option value="aniversary gift">Anniversary Gift</option>
-        <option value="wedding gift">Wedding Gift</option>
-        <option value="festival gift">Festival Gift</option>
-        <option value="education gift">Educational Gift</option>
-        <option value="education gift">New Arrival</option>
+        <option value="flower">Flower</option>
+        <option value="plants">plants</option>
+        <option value="cake">cake</option>
+        <option value="personalized">personalized</option>
+        <option value="sameday">sameday</option>
+        <option value="newArrival">New Arrival</option>
       </select>
     </div>
 

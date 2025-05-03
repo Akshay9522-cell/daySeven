@@ -7,7 +7,7 @@ import { increaseQuantity, decreaseQuantity, remove } from '../redux/cartSlice';
 import { useRouter } from 'next/navigation';
 import Navbar from '../components/Navbar';
 import { useUser } from '@clerk/nextjs'; 
-import { Toaster,toast } from 'react-hot-toast';
+import {Toaster, toast } from 'react-hot-toast';
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -17,17 +17,17 @@ const CartPage = () => {
   const { isSignedIn } = useUser();
 
   useEffect(() => {
-    let totalPrice = 0;
-    products.forEach((product) => {
-      totalPrice += product.quantity * product.proPrice;
-    });
+    const totalPrice = products.reduce((acc, product) => acc + product.quantity * product.proPrice, 0);
     setTotal(totalPrice);
   }, [products]);
 
-  
   const handleCheckout = () => {
+    if (products.length === 0) {
+      toast.error("Your cart is empty!");
+      return;
+    }
     if (!isSignedIn) {
-      toast.error('you are not loged In,plaese login first')
+      toast.error("You are not logged in, please login first!");
       return;
     }
     router.push('/checkout');
@@ -56,7 +56,7 @@ const CartPage = () => {
               {products.map((product) => (
                 <tr key={product.id} className="hover:bg-gray-100 transition-colors duration-300">
                   <td className="px-4 py-4">
-                    <Image
+                    <img
                       src={product.proImage}
                       alt={product.proName}
                       width={80}
@@ -82,8 +82,8 @@ const CartPage = () => {
                       </button>
                     </div>
                   </td>
-                  <td className="px-4 py-4 text-right font-semibold text-gray-800">₹{product.proPrice.toFixed(2)}</td>
-                  <td className="px-4 py-4 text-right font-semibold text-gray-800">₹{(product.quantity * product.proPrice).toFixed(2)}</td>
+                  <td className="px-4 py-4 text-right font-semibold text-gray-800">₹{product.proPrice }</td>
+                  <td className="px-4 py-4 text-right font-semibold text-gray-800">₹{Number(product.quantity)}</td>
                   <td className="px-4 py-4 text-right">
                     <button
                       onClick={() => dispatch(remove(product))}
@@ -105,7 +105,7 @@ const CartPage = () => {
                   </td>
                   <td className="px-4 py-6 text-right">
                     <button
-                     onClick={handleCheckout}
+                      onClick={handleCheckout}
                       className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md transition"
                     >
                       Proceed to Checkout
@@ -118,7 +118,7 @@ const CartPage = () => {
         </div>
 
         {products.length === 0 && (
-          <div className="mt-10 text-center text-gray-500">
+          <div className="mt-10 text-center text-gray-500 text-lg">
             Your cart is empty 🛒
           </div>
         )}

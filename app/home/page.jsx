@@ -25,7 +25,7 @@ export default function Page() {
             { img: 'h3.webp', text: 'Cakes', link: 'cake' },
             { img: 'h4.webp', text: 'Personalized', link: 'personalized' },
             { img: 'h5.webp', text: 'Plants', link: 'plants' },
-            { img: 'h6.webp', text: 'New Arrivals' },
+            { img: 'h6.webp', text: 'New Arrivals',link:'newArrivals' },
             { img: 'h7.webp', text: 'International' },
             { img: 'h8.webp', text: 'Bulk/Corp. Gifts' },
           ].map((item, idx) => (
@@ -66,8 +66,8 @@ export default function Page() {
 
     
       <section className='flex flex-wrap justify-center gap-6 p-6'>
-        {['d1', 'd2', 'd3', 'd4'].map((d, idx) => (
-          <img key={idx} src={`/images/${d}.webp`} alt={`Deal ${idx+1}`} className='w-40 md:w-52 h-40 object-cover' />
+        {['d1', 'd2', 'd3', 'd4'].map((e, i) => (
+          <img key={i} src={`/images/${e}.webp`} alt={`Deal ${i+1}`} className='w-40 md:w-52 h-40 object-cover' />
         ))}
       </section>
 
@@ -75,8 +75,8 @@ export default function Page() {
       <section className='p-6'>
         <h1 className='text-2xl font-semibold mb-6'>Gifts that Spark Joy</h1>
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4'>
-          {['g1','g2','g3','g4','g5','g6'].map((g, idx) => (
-            <img key={idx} src={`/images/${g}.webp`} alt='Gift' className='w-full h-40 object-cover' />
+          {['g1','g2','g3','g4','g5','g6'].map((e, i) => (
+            <img key={i} src={`/images/${e}.webp`} alt='Gift' className='w-full h-40 object-cover' />
           ))}
         </div>
       </section>
@@ -85,8 +85,8 @@ export default function Page() {
       <section className='p-6'>
         <h1 className='text-2xl font-semibold mb-6'>Same Day Delivery</h1>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-          {['i1','i2','i3','i4','i5','i6','i7','i8'].map((i, idx) => (
-            <img key={idx} src={`/images/${i}.webp`} alt='Item' className='w-full h-48 object-cover' />
+          {['i1','i2','i3','i4','i5','i6','i7','i8'].map((e, i) => (
+            <img key={i} src={`/images/${e}.webp`} alt='Item' className='w-full h-48 object-cover' />
           ))}
         </div>
       </section>
@@ -200,7 +200,7 @@ export default function Page() {
           </div>
         </div>
         <div className='flex gap-4 mt-6 md:mt-0'>
-          {['fb1','insta','link','twitter'].map((icon, idx) => (
+          {['fb1','insta','link'].map((icon, idx) => (
             <img key={idx} src={`/images/${icon}.jpg`} alt='Social' className='w-16 h-16 rounded-full' />
           ))}
         </div>
