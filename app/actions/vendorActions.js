@@ -17,3 +17,11 @@ export async function updateVendorStatus(id, status) {
     data: { status },
   });
 }
+
+export async function deactivateVendorStatus(id, status) {
+  return await prisma.vendor.update({
+    where: { id },
+    data: { status },
+  });
+}
+

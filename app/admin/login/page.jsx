@@ -24,10 +24,10 @@ export default function Page() {
   const [readyToLogin, setReadyToLogin] = useState(false);
 
   const router = useRouter();
-
+  var adEmail;
   useEffect(() => {
     if (state.success && state.admin?.status === 'approved') {
-      localStorage.setItem("adminemail", state.admin.email);
+     adEmail=  localStorage.setItem("adminemail", state.admin.email);
       localStorage.setItem("adminname", state.admin.name);
       localStorage.setItem("id", state.admin.id);
       router.push('/admin/AdminDashboard');
@@ -54,7 +54,7 @@ export default function Page() {
       return;
     }
 
-    checkEmailVerified();
+     checkEmailVerified();
 
     if (emailVerified) {
     
@@ -107,9 +107,12 @@ export default function Page() {
     const verifiedEmails = JSON.parse(localStorage.getItem('verified_emails')) || [];
   
     if (verifiedEmails.includes(email)) {
-      toast.success("Email already verified! You can login now.");
-      setReadyToLogin(true);
+      setEmailVerified(true); 
+      setReadyToLogin(false); 
+      toast.success("Email already verified! Proceed to login.");
     } else {
+      setEmailVerified(false);
+      setReadyToLogin(false);
       toast.error("Email not verified yet. Please verify with OTP.");
     }
   };
@@ -126,24 +129,36 @@ export default function Page() {
             <>
               <input
                 type="email"
+                onBlur={handleVerifyEmail}
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full p-3 border rounded"
               />
+              <br /> <br />
+
+               <input
+                type="password"
+                
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-3 border rounded"
+              />
+              <br /> <br />
 
 
-<button
-  onClick={handleVerifyEmail}
+{/* <button
+  onClick={}
   className="w-full py-3 bg-purple-500 text-white rounded hover:bg-purple-600"
 >
   Verify Email
-</button>
+</button> */}
               <button
                 onClick={handleSendOtp}
                 className="w-full py-3 bg-blue-500 text-white rounded hover:bg-blue-600"
               >
-                {emailVerified ? 'Proceed to Login' : 'Send OTP'}
+                 {emailVerified ? 'Proceed to Login' : 'Send OTP'}
               </button>
 
               {!emailVerified && otpSent && (

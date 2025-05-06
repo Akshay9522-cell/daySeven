@@ -95,7 +95,8 @@ export default function Navbar() {
 
           
       
-          <SignInButton />
+          <SignInButton className='bg-red-300 p-2 rounded' />
+          <SignUpButton className='bg-red-300 p-2 rounded' />
           <SignedIn>
               <UserButton />
             </SignedIn>

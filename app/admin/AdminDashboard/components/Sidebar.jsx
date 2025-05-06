@@ -36,8 +36,8 @@ import {Toaster,toast} from 'react-hot-toast';
         }`}
         style={{ marginRight: isOpen ? '0' : '64px' }}  
       >
-        <div className="flex bg-[#184572] flex-col h-full justify-center items-center ">
-          <ul className="mt-4 flex flex-col gap-5 justify-center items-center">
+        <div className="flex bg-[#184572] flex-col h-full ">
+          <ul className=" mb-36 flex flex-col gap-5">
       
             <li>
               <Link
@@ -66,32 +66,10 @@ import {Toaster,toast} from 'react-hot-toast';
               </Link>
             </li>
      
-            <li>
-              <Link
-                href="/admin/AdminDashboard/cat"
-                className="text-white hover:underline text-lg font-semibold"
-              >
-                <BsFillCartFill className="inline-block mr-2" /> Category
-              </Link>
-            </li>
+           
           
-            <li>
-              <Link
-                href="/Admin/Admindashboard/newvendor"
-                className="text-white hover:underline text-lg font-semibold"
-              >
-                <MdOutlineRequestPage className="inline-block mr-2" /> New Product Request
-              </Link>
-            </li>
-          
-            <li>
-              <Link
-                href="/Admin/Admindashboard/category"
-                className="text-white hover:underline text-lg font-semibold"
-              >
-                <FaEdit className="inline-block mr-2" /> Category
-              </Link>
-            </li>
+           
+           
           </ul>
         </div>
       </div>

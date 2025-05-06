@@ -7,14 +7,26 @@ import Navbar from '../components/Navbar';
 import Footer from '../footer/page';
 import Category from '../category';
 import '../footer/page.css';
+import  {useUser}  from '@clerk/nextjs';
 
 export default function Page() {
+
+    const{user}=useUser()
+    console.log(user)
+   
+    localStorage.setItem('userName',user?.fullName)
+    localStorage.setItem('userEmail',user?.emailAddresses[0].emailAddress)
+    
   return (
     <>
-    
+
+   
       <div className='fixed top-0 w-full bg-white shadow z-10'>
         <Navbar />
+     
+
       </div>
+    
 
   
       <div className='pt-24 px-4'>

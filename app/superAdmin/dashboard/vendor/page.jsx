@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getPendingVendors, updateVendorStatus } from '../../../actions/vendorActions';
 
 export default function VendorRequests() {
-  const [vendors, setVendors] = useState([]);
+    const [vendors, setVendors] = useState([]);
 
   useEffect(() => {
     async function load() {

@@ -9,6 +9,7 @@ import { createOrder } from '../actions/CreateOrder';
 import { verifyOrder } from '../actions/VerifyOrders';
 import { useRouter } from 'next/navigation';
 
+
 const CheckoutPage = () => {
   const router = useRouter();
   const product = useSelector((state) => state.addtocart.cart);
@@ -19,8 +20,8 @@ const CheckoutPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   useEffect(() => {
-    const name = localStorage.getItem('adminname') || '';
-    const email = localStorage.getItem('adminemail') || '';
+    const name = localStorage.getItem('userName') || '';
+    const email = localStorage.getItem('userEmail') || '';
     setUserInfo({ name, email });
 
     let totalPrice = 0;
@@ -110,7 +111,7 @@ const CheckoutPage = () => {
                   {product.map((item, index) => (
                     <tr key={index} className="hover:bg-gray-50">
                       <td className="px-4 py-4">
-                        <Image src={item.proImage} alt={item.proName} width={50} height={50} className="rounded-md border" />
+                        <img src={item.proImage} alt={item.proName} width={50} height={50} className="rounded-md border" />
                       </td>
                       <td className="px-4 py-4 font-medium text-gray-800">{item.proName}</td>
                       <td className="px-4 py-4 font-semibold text-green-700">₹{item.proPrice}</td>

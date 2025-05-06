@@ -28,6 +28,7 @@ const CartPage = () => {
     }
     if (!isSignedIn) {
       toast.error("You are not logged in, please login first!");
+      router.push('/home')
       return;
     }
     router.push('/checkout');

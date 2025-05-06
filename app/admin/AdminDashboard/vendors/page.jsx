@@ -2,12 +2,14 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { vendorsList } from '../../../actions/vendorsList'
+import { deactivateVendorStatus } from '../../../actions/vendorActions'
 
 export default function page() {
          
       const[show,setShow]=useState([])
       const[loading,setLoading]=useState(true)
       const[error,setError]=useState(null)
+      const [vendors, setVendors] = useState([]);
 
       useEffect(()=>{
 
@@ -30,8 +32,10 @@ export default function page() {
       if (error) return <p>Error: {error.message}</p>;
 
 
-    async  function vendorInfo(id){
-        alert(id)
+    async  function vendorInfo(id,status){
+      
+         await deactivateVendorStatus(id,status)
+         setVendors(vendors.filter(v => v.id !== id));
       }
 
   return (
@@ -58,7 +62,7 @@ export default function page() {
             <td className="border border-gray-300 px-4 py-2">{e.phone}</td>
             <td className="border border-gray-300 px-4 py-2">
              
-             <button className='rounded bg-sky-400 px-3 py-2 hover:bg-sky-800' onClick={()=>{vendorInfo(e.id)}}>Deactivate</button>
+             <button className='rounded bg-sky-400 px-3 py-2 hover:bg-sky-800' onClick={()=>{vendorInfo(e.id),'rejected'}}>active </button>
 
 
 
