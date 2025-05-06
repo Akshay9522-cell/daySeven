@@ -35,9 +35,10 @@ import { AiOutlineProduct } from "react-icons/ai";
 >
   <div className="flex flex-col">
     <ul className="mt-8 flex flex-col gap-5">
+      
       <li>
         <Link
-          href="/Admin/Admindashboard"
+          href="/vendor/vendorDashboard/home"
           className="text-white hover:underline text-lg font-medium flex items-center"
         >
           <FaHome className="mr-2" /> Home

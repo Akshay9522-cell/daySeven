@@ -19,7 +19,25 @@ try {
     return { success: true,vendorInfo };
 } catch (error) {
     console.error('Error creating product:', error);
-        return { error: 'Failed to create product' };
+        return { error: 'Failed to create vendor' };
 }
     
+}
+
+export async function getVendorWithProducts(vendorId) {
+    try {
+        const vendorProducts = await prisma.vendor.findUnique({
+            where: { id: Number(vendorId) },
+            include: {
+                products: true, 
+            },
+        });
+
+        console.log(vendorProducts);
+
+        return { success: true, vendor: vendorProducts };
+    } catch (error) {
+        console.error('Error fetching vendor and products:', error);
+        return { success: false, error: 'Failed to fetch vendor details' };
+    }
 }

@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useActionState } from 'react'
+import React, { useActionState,useState,useEffect } from 'react'
 import insertProduct from '../../../actions/insertProduct'
 const initialState = {
   success: false,
@@ -12,6 +12,16 @@ if (typeof window !== 'undefined') {
 }
 export default function page() {
   const[state,formAction]=useActionState(insertProduct, initialState)
+  const [vendorId, setVendorId] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const VendorId = localStorage.getItem('id'); 
+      if (VendorId) {
+        setVendorId(VendorId);
+      }
+    }
+  }, []);
 
 
 
@@ -26,7 +36,8 @@ export default function page() {
   <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">Add New Product</h2>
 
   <form action={formAction} className="space-y-5">
-    {/* Category */}
+  <input type="hidden" name="vendorId" value={vendorId} />
+   
     <div>
       <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
         Category <span className="text-red-500">*</span>
@@ -47,7 +58,7 @@ export default function page() {
       </select>
     </div>
 
-    {/* Product Name */}
+
     <div>
       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
         Product Name <span className="text-red-500">*</span>
@@ -62,7 +73,7 @@ export default function page() {
       />
     </div>
 
-    {/* Description */}
+
     <div>
       <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
         Description <span className="text-red-500">*</span>
@@ -77,7 +88,7 @@ export default function page() {
       />
     </div>
 
-    {/* Price */}
+
     <div>
       <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-1">
         Price (₹) <span className="text-red-500">*</span>
@@ -92,7 +103,7 @@ export default function page() {
       />
     </div>
 
-    {/* Image Upload */}
+
     <div>
       <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">
         Upload Image <span className="text-red-500">*</span>
@@ -111,7 +122,7 @@ export default function page() {
       />
     </div>
 
-    {/* Submit Button */}
+ 
     <button
       type="submit"
       className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition-colors"

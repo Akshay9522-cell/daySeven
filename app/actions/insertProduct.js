@@ -11,11 +11,12 @@ export default async function insertProduct(prevState,formData){
     const description= formData.get('description')
     const price= formData.get('price')
     const image= formData.get('image')
+    const vendorId = formData.get('vendorId');
 
     if (!category || !name || !description || !price || !image) {
         return { success: false, error: 'All fields are required' };
       }
-      console.log(category,name,description,price,image)
+      console.log(category,name,description,price,image,vendorId)
 
       try {
         const newformData=new FormData()
@@ -43,7 +44,10 @@ export default async function insertProduct(prevState,formData){
                 name,
                 description,
                 price   ,
-                image:cloudinaryData.secure_url
+                image:cloudinaryData.secure_url,
+                vendor: {
+                  connect: { id: Number(vendorId) },
+                },
             
             
             }
