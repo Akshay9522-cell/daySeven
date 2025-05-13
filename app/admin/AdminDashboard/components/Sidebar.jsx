@@ -23,7 +23,7 @@ import {Toaster,toast} from 'react-hot-toast';
       
     
       <button
-        className="fixed top-3 left-4 z-20 text-white p-2 rounded bg-[#184572] hover:bg-[#1d466f] transition-colors"
+        className="fixed top-3 left-4 z-20 text-white p-2 rounded className=' bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md  transition-colors"
         onClick={toggleSidebar}
       >
         <FaBars />
@@ -31,12 +31,12 @@ import {Toaster,toast} from 'react-hot-toast';
 
      
       <div
-        className={`absolute top-0 left-0 h-screen w-64 bg-[#1d466f] p-4 mt-18 transition-transform transform ${
+        className={`absolute top-0 left-0 h-screen w-64 className=' bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md  p-4 mt-18 transition-transform transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
         style={{ marginRight: isOpen ? '0' : '64px' }}  
       >
-        <div className="flex bg-[#184572] flex-col h-full ">
+        <div className="flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-3 flex-col h-full ">
           <ul className=" mb-36 flex flex-col gap-5">
       
             <li>

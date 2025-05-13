@@ -15,7 +15,7 @@ export default function SuperHeader () {
     }
   }, [])
   return (
-    <div className="bg-gray-700 ">
+    <div className="className=' bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-2 ">
       <div className="flex justify-between">
         <h1 className="text-white text-2xl font-semibold ml-20 ">SuperAdmin Dashboard</h1>
        

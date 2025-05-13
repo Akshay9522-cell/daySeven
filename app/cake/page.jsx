@@ -91,13 +91,13 @@ export default function CakePage() {
                     <div className="mt-auto flex gap-2">
                       <button
                         onClick={() => handleAddToCart(e)}
-                        className="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 text-sm"
+                        className="bg-gradient-to-r from-yellow-500 to-yellow-700 hover:from-yellow-600 hover:to-yellow-800 p-2 rounded-lg"
                       >
                         Add to Cart
                       </button>
                       <button
                         onClick={() => handleAddToWishlist(e)}
-                        className="flex-1 bg-red-600 text-white py-2 rounded hover:bg-red-700 text-sm"
+                       className="bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 p-2 rounded-lg"
                       >
                         Wishlist
                       </button>

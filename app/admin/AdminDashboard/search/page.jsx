@@ -1,12 +1,15 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { vendorsList } from '../../../actions/vendorsList'
+import axios from 'axios'
+
 export default function page() {
 
   const[vendor,setVendor]=useState([])
   const[search,setSearch]=useState('')
   const[filter,setFilter]=useState([])
   const [now, setNow] = useState(null);
+  const[show,setShow]=useState([])
 
     
   useEffect(()=>{
@@ -30,6 +33,17 @@ export default function page() {
       
       setFilter(result)
    } 
+
+    async function vendorDetail(id){
+         
+       let api='/api/vendorDetails'
+
+       await axios.post(api,{id:id}).then((res)=>{
+            console.log(res.data)
+            setShow(res.data.data)
+       })
+            
+    }
 
   return (
     <>
@@ -57,6 +71,12 @@ export default function page() {
   </div>
 
      <div>
+     <div className=' rounded-lg shadow-md p-4'>
+                 <h1 className='text-xl font-semibold mb-2'>    {show.name}</h1>
+                 <p className='text-sm text-gray-600 '>    {show.email} </p>
+                <p className='text-sm text-gray-600 ' >  {show.phone} </p>
+                 <p className='text-sm text-green-600 ' >  {show.status} </p>
+                    </div>
         {
          filter.length>0 ?(
 
@@ -67,11 +87,16 @@ export default function page() {
                         <ul>
                         <li key={e.id} className="border-b py-2">
                         <p className="font-semibold">{e.name}</p>
-                        <p>{e.email}</p>
-                          <p className="text-sm text-gray-500">Status: {e.status}</p>
+                     
+                          <div className="bg-gradient-to-r from-sky-400 to-gray-500 text-white p-2 w-20  hover rounded-lg shadow-lg">
+                            <button onClick={()=>{vendorDetail(e.id)}} >Get Detail</button>
+                           </div>
                         </li>
+                       
                         </ul>
-                        </>
+                        
+                       
+                          </>
                     )
                 })
              
@@ -79,8 +104,14 @@ export default function page() {
 
             <p className="text-gray-500">No vendors found.</p>
          )    
+
+         
         }
+
+
      </div>
+
+    
   </>  
   )
 }

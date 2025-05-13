@@ -35,7 +35,7 @@ export default function Navbar() {
     
     <div >
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-red-200 border border-grey">
+      <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-gradient-to-r from-yellow-300 to-orange-400 hover:from-yellow-600 hover:to-orange-800 p-4 rounded-lg border border-grey">
 
         <div className="flex items-center gap-4">
          

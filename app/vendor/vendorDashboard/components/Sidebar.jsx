@@ -22,7 +22,7 @@ import { AiOutlineProduct } from "react-icons/ai";
   return (
     <>
       <button
-  className="fixed top-3 fixed left-4 z-30 text-white p-2 bg-[#1d466f]/70 hover:bg-[#1d466f]/90 transition rounded"
+  className="fixed top-3  left-4 z-30 text-white p-2 bg-[#1d466f]/70 hover:bg-[#1d466f]/90 transition rounded"
   onClick={toggleSidebar}
 >
   <FaBars />
@@ -66,6 +66,15 @@ import { AiOutlineProduct } from "react-icons/ai";
           className="text-white hover:underline text-lg font-medium flex items-center"
         >
           <BsDisplay className="mr-2" /> Search
+        </Link>
+      </li>
+
+      <li>
+        <Link
+          href="/vendor/vendorDashboard/orders"
+          className="text-white hover:underline text-lg font-medium flex items-center"
+        >
+          <BsDisplay className="mr-2" /> All Orders
         </Link>
       </li>
     </ul>

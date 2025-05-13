@@ -15,15 +15,15 @@ export default function Sign() {
     <>
     <Navbar/>
     <div className='footer'>
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-300 to-pink-500 rounded-md p-3 px-4">
   <form
-    className="w-full max-w-md bg-white shadow-md rounded-lg p-8 space-y-6"
+    className="w-full max-w-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500   shadow-md rounded-lg p-8 space-y-6"
     action={formAction}
   >
     <h2 className="text-2xl font-bold text-center text-gray-800">Vendor Registration</h2>
 
     <div>
-      <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+      <label htmlFor="name" className="block text-sm font-medium text-gray-900">
         Name <sup className="text-red-500">*</sup>
       </label>
       <input
@@ -37,7 +37,7 @@ export default function Sign() {
     </div>
 
     <div>
-      <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+      <label htmlFor="email" className="block text-sm font-medium text-gray-900">
         Email <sup className="text-red-500">*</sup>
       </label>
       <input
@@ -51,7 +51,7 @@ export default function Sign() {
     </div>
 
     <div>
-      <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+      <label htmlFor="password" className="block text-sm font-medium text-gray-900">
         Password <sup className="text-red-500">*</sup>
       </label>
       <input
@@ -65,7 +65,7 @@ export default function Sign() {
     </div>
 
     <div>
-      <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+      <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
         Phone Number <sup className="text-red-500">*</sup>
       </label>
       <input
@@ -78,9 +78,9 @@ export default function Sign() {
       />
     </div>
 
-    <div className="text-sm text-center text-gray-600">
+    <div className="text-sm text-center text-gray-800">
       Already have an account?{" "}
-      <Link href="/vendor/login" className="text-blue-600 hover:underline font-medium">
+      <Link href="/vendor/login" className="text-white hover:underline font-medium">
         Click here
       </Link>
     </div>

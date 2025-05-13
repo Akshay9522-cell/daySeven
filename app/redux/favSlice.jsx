@@ -15,7 +15,7 @@ const favSlice = createSlice({
             }
             else {
                 state.fav.push(action.payload);
-                alert("Product Added Successfully")
+               
             }
         },
         removefav: (state, action) => {
@@ -24,7 +24,7 @@ const favSlice = createSlice({
        
     }
   
-
+   
 })
 
 

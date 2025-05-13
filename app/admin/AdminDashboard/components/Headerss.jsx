@@ -24,12 +24,12 @@ export default function Headerss () {
       localStorage.setItem('verified_emails', verifiedEmails);
     }
   
-    router.push('/');
+    router.push('/home');
     toast.success('Logged out successfully!');
   }
   
   return (
-    <div className="bg-gray-700 ">
+    <div className="className=' bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-2 ">
       <div className="flex justify-between">
         <h1 className="text-white text-2xl font-semibold ml-20 ">Admin Dashboard</h1>
         {/* <p className="text-white ">User : {name}  </p>
